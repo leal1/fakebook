@@ -13,9 +13,9 @@ function jwt() {
     } })
   .unless({
     path: [
-      '/users/authenticate',
-      '/users/register',
-      '/users/login'
+      '/api/users/authenticate',
+      '/api/users/register',
+      '/api/users/login'
     ]
   });
 }
