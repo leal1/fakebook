@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+* {
+  box-sizing: border-box;
+}
+
+html > body {
+  background-color: #e9ebee;
+}
+.facebook-blue {
+  color: #00008B;
+}
+
+.align-center {
+  text-align: center;
+}
+
+/* removes outline */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.post-width {
+  width: 45%;
+}
+
+@media only screen and (min-width : 375px) 
+and (max-width : 667px) { 
+  .center {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 320px)
+and (-webkit-device-pixel-ratio: 2)
+{
+   .post-width {
+     width: 90%;
+   }
+
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .post-width {
+    width: 80%;
+  }
+}
+
+
+
+
+.padding {
+  padding: 10px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}

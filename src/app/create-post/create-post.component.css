@@ -1,0 +1,25 @@
+
+
+.header-txt {
+  background-color: #00008B;
+  color: white;
+}
+
+#create-post-div {
+  text-align: center;
+}
+
+#create-post-btn {
+  width: 90%;
+}
+
+#txt-box {
+  width: 90%;
+
+}
+
+form {
+  width: 100%;
+  display: inline-block;
+}
+

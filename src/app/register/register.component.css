@@ -1,0 +1,13 @@
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#form-div {
+  width: 30%;
+  border-radius: 25px;
+}
+
+form > div { 
+  width: 95%;
+}

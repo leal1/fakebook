@@ -1,0 +1,11 @@
+<div id="create-post-div" class="card center post-width">
+  <h5 class="header-txt pl-3 py-2 mb-0"> 
+    What's on your mind?
+  </h5>
+  <form (ngSubmit)="onSubmit(postForm)" #postForm="ngForm" class="center">
+    <textarea id="txt-box" [(ngModel)]="post.message" name="msg" class="p-3 my-3 center" 
+      rows="2" cols="20" placeholder="Message"></textarea>
+    <button id="create-post-btn" class="btn-primary center mb-2" type="submit"> Create Post </button>
+  </form>
+
+</div>

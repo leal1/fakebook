@@ -1,0 +1,110 @@
+.rounded-border {
+  border: none;
+  border: 1px solid #D3D3D3;
+  border-radius: 20px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.fa-vc {
+  float: left;
+  clear: both;
+  margin-top:6px;
+}
+
+input {
+  width: 88%;
+  margin-top: 12px;
+}
+
+span {
+  display: block;
+  font-size: .8em;
+}
+
+span.link {
+  cursor: pointer;
+}
+
+
+#comment-div {
+  vertical-align: middle;
+  display: table-cell;
+  padding-top: 10px;
+}
+#comment-div  ul {
+  list-style-type: none;
+  /* display: flex; */
+  /* flex-flow: column wrap; */
+
+}
+
+#comment-div li {
+  background-color: #f2f3f5;
+  border-radius: 18px;
+  box-sizing: border-box;
+  color: #1c1e21;
+  /* display: inline; */
+  line-height: 16px;
+  margin: 0 0 5px 0;
+  max-width: 100%;
+  word-wrap: break-word;
+  position: relative;
+  white-space: normal;
+  word-break: break-word;
+  clear: both;
+  float: left;
+  padding: 7px;
+  
+}
+
+.comment-author {
+  display: inline;
+}
+
+#post-header {
+  margin-top: -6px;
+}
+
+.action-div{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 98%;
+  margin: 0 1% 0 1%;
+  justify-content: space-between;
+}
+
+.action-div > div {
+  flex: 1 1 100%;
+  border-bottom: 1px solid #dadde1;
+  border-top: 1px solid #dadde1;
+}
+
+.action-div > div:hover {
+  background-color: #e9ebee;
+  cursor: pointer;
+}
+
+
+.btn-div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 6px;
+  margin: 5px 0;
+}
+
+.like-count {
+  font-style: italic;
+}
+
+
+@media only screen and (max-width: 900px)
+{
+  input {
+    width: 75%;
+  }
+
+}

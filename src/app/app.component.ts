@@ -1,4 +1,16 @@
 import { Component } from '@angular/core';
+import { NgModule } from '@angular/core';
+
+import { MomentModule } from 'ngx-moment';
+
+@NgModule({
+  imports: [
+    MomentModule
+  ],
+  declarations: [
+    MomentModule
+  ]
+})
 
 @Component({
   selector: 'app-root',
@@ -6,5 +18,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fakebook-client';
+  title = 'fakebook';
 }

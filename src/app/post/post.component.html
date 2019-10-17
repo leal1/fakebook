@@ -1,0 +1,52 @@
+<div class="mt-4 card center post-width">
+    <div>
+        <fa-icon icon="user-circle" class="fa-2x fa-vc ml-2 mr-0"></fa-icon>
+        <div id = "post-header" class="mb-3">
+            <h6 class="pl-2 pt-2 mt-2 mb-0 facebook-blue inline"> {{ post.author }} </h6>
+            <span class="mt-0 ml-5"> posted {{  post.addDate | amTimeAgo }}... </span>
+        </div>
+
+    </div>
+    <h5 class="pl-3 py-2 b-btm"> 
+      {{ post.message }}
+
+    </h5>
+    <div class="like-count ml-3" *ngIf="post.likeCount && post.likeCount > 0">
+      {{formatLikeCount(post.likeCount)}} 
+    </div>
+
+    <div class="action-div">
+      <div class="btn-div" [ngClass]="{'facebook-blue': liked}" (click)="likeOrUnlikePost()">
+        <div >
+          <fa-icon class="mr-2" icon="thumbs-up"></fa-icon>
+        </div>
+        <div>
+          Like
+        </div>
+      </div>
+      <div class="btn-div" (click)="focusOnInput(commentInput)">
+        <div>
+          <fa-icon class="mr-2" icon="comment-alt"></fa-icon>
+        </div>
+        <div>
+          Comment
+        </div>
+      </div>
+    </div>
+
+    <div id="comment-div">
+      <span *ngIf="showSeeMore" (click)="moreComments()" class="facebook-blue ml-3 mb-1 link float-left"> View previous comments</span>
+      <span *ngIf="numTotalComments > 0" class="float-right mr-3"> {{numCommentsDisplayed}} of {{numTotalComments || 0}}</span>
+          <ul *ngIf="post.comments">
+            <li *ngFor="let comment of post.comments.slice(-numCommentsDisplayed)">
+                <span class="comment-author facebook-blue">{{ comment.author }}</span> - {{ comment.message }}
+            </li>
+          </ul>
+
+          <fa-icon icon="user-circle" class="fa-2x fa-vc ml-2 mr-0"></fa-icon>
+          <input #commentInput (keyup.enter)="createComment()" class="mx-2 pl-2 py-1 rounded-border inline" 
+          [(ngModel)]="comment" type="text" placeholder="Write a comment...">
+        </div>
+
+
+</div>

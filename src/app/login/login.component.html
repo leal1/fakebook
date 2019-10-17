@@ -1,0 +1,30 @@
+<div class="bg"></div>
+<div id="form-div" class="container my-5 py-5 border border-secondary">
+  <h2 class="align-center"> Login </h2>
+  <p class="align-center"> to resume browsing <span class="facebook-blue"> Fakebook </span></p>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" [ngClass]="{'invalid': 'submitted && f.username.errors'}" 
+          class="form-control"  aria-describedby="username" placeholder="Enter your username">
+          <div *ngIf="submitted && f.username.errors">
+            <div *ngIf='f.username.errors.required'> Username is required</div>
+          </div>
+
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" [ngClass]="{'invalid': 'submitted && f.password.errors'}"
+          class="form-control"  placeholder="Enter your password">
+          <div *ngIf="submitted && f.password.errors">
+
+            <div *ngIf='f.password.errors.required'> Password is required</div>
+          </div>
+
+      </div>
+      <button type="submit" class="btn btn-primary float-right">Login</button>
+
+      <a routerLink="/register">Register</a>
+  </form>
+</div>
+
