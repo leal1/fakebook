@@ -11,3 +11,11 @@ form {
 form > div { 
   width: 95%;
 }
+
+@media only screen and (max-width: 900px)
+{
+  #form-div {
+    width: 80%;
+  }
+
+}
