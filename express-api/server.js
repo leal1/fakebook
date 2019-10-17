@@ -14,7 +14,7 @@ app.use(cors({ origin: 'http://localhost:4200' , credentials :  true}));
 
 
 app.use(cookieParser());
-require('dotenv').config()
+require('dotenv').config({path: './env'})
 
 let distDir = path.join(__dirname, "../dist/");
 app.use(express.static(distDir));
