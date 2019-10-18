@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   returnUrl: string;
+  invalidLogin: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private authenticationService: AuthenticationService,
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    document.body.classList.add('bg');
     this.authenticationService.getCSRFToken()
       .subscribe();
     console.log("DONE");
@@ -32,6 +34,10 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  ngOnDestroy() {
+    document.body.classList.remove('bg');
+  }
+
   get f() { return this.loginForm.controls; }
 
 
@@ -40,9 +46,15 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid) return;
     this.authenticationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
+      
       .subscribe(data => {
+        this.invalidLogin = false;
         this.router.navigate([this.returnUrl]);
+      },
+      (err) => {
+        this.invalidLogin = true;
       })
+
   }
 
 }

@@ -14,18 +14,24 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   returnUrl: string;
+  invalidRegister: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router) { }
 
   ngOnInit() {
+    document.body.classList.add('bg');
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
+
+  ngOnDestroy() {
+    document.body.classList.remove('bg');
   }
 
   get f() { return this.registerForm.controls; }
@@ -37,9 +43,17 @@ export class RegisterComponent implements OnInit {
     this.userService.register(this.registerForm.value)
             .pipe(first())
             .subscribe(
-                data => {
-                    this.router.navigate(['/login']);
-                }
+              data => {
+                this.invalidRegister = false;
+                this.registerForm.controls['username'].setErrors(null);
+
+                
+                this.router.navigate(['/login']);
+              },
+              (err) => {
+                this.registerForm.controls['username'].setErrors({'incorrect': true});
+                this.invalidRegister = true;
+              }
             )}
 
 }

@@ -6,16 +6,26 @@ form {
 #form-div {
   width: 30%;
   border-radius: 25px;
+  background-color: #ffffff;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 form > div { 
   width: 95%;
 }
 
+div > h1 {
+  color: #ffffff;
+  margin-bottom: 2%;
+}
+
 @media only screen and (max-width: 900px)
 {
   #form-div {
     width: 80%;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
 }
