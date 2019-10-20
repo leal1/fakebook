@@ -27,14 +27,27 @@ div > h1 {
 {
   #form-div {
     width: 80%;
-    margin-top: -5%;
+    margin-top: -8%;
     margin-bottom: 0;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
   }
 
   form > div { 
     margin: 0;
+  }
+
+
+}
+
+@media only screen and (device-aspect-ratio: 40/71)
+{
+  #form-div {
+
+    padding-top: 1rem;
+  }
+
+  .err-div {
+    display: none;
   }
 
 }
