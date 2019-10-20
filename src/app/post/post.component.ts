@@ -79,8 +79,9 @@ export class PostComponent implements OnInit {
   }
 
   moreComments(): void {
+    // displays more comments
     this.numCommentsDisplayed+=3;
-
+    // changes numCommentsDisplayed to the total number of comments if less comments available
     if(this.numCommentsDisplayed >= this.post.comments.length  ) {
       this.numCommentsDisplayed = this.numTotalComments;
       this.showSeeMore = false;
@@ -98,17 +99,19 @@ export class PostComponent implements OnInit {
   }
 
   likeOrUnlikePost(): void {
-    console.log("Hello");
     this.postService.likeOrUnlikePost(this.post._id, this.authService.currentUserValue._id)
       .subscribe(() => {
         if(this.liked) {
+          // update like count on UI
           this.post.likeCount--;
           let index = this.post.likes.indexOf(this.authService.currentUserValue._id);
           if (index !== -1) this.post.likes.splice(index, 1);
         } else {
+          // decrement like count on UI
           this.post.likeCount++;
           this.post.likes.push(this.authService.currentUserValue._id);
         }
+        // reload post component with update
         this.ngOnInit();
 
       })
